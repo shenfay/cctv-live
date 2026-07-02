@@ -1,0 +1,10 @@
+[
+  {
+    "id": "cctv13",
+    "name": "CCTV-13 新闻",
+    "hls_url": "https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv13_mbd.m3u8?auth_key=1783033432-1-332a6884c3514b54bdd8f07421094f91-5470089944e12535439575bea2a69f48&yid=332a6884c3514b54bdd8f07421094f91",
+    "room_number": "16265686808730585228",
+    "source": "cctvnews",
+    "fetched_at": 1782979442
+  }
+]
