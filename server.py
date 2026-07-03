@@ -20,6 +20,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CHANNELS_FILE = os.path.join(BASE_DIR, "cctv_channels.json")
 PORT = 8765
 REFRESH_INTERVAL = 10 * 60  # 10 分钟自动刷新一次 auth_key
+VENV_PYTHON = os.path.join(BASE_DIR, "venv", "bin", "python3")  # 虚拟环境 Python
 
 _refresh_lock = threading.Lock()
 
@@ -183,7 +184,7 @@ def _do_refresh() -> tuple[list, str]:
     """执行一次 auth_key 刷新，返回 (channels, log)"""
     print("刷新央视新闻 auth_key...", file=sys.stderr)
     result = subprocess.run(
-        [sys.executable, os.path.join(BASE_DIR, "refresh_channels.py")],
+        [VENV_PYTHON, os.path.join(BASE_DIR, "refresh_channels.py")],
         capture_output=True, timeout=300, cwd=BASE_DIR,
     )
     stderr = result.stderr.decode("utf-8", errors="replace")
