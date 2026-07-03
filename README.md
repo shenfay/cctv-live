@@ -26,7 +26,9 @@ server.py (后台线程每 10 分钟)
 ## 安装
 
 ```bash
-pip3 install playwright
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 playwright install chromium
 ```
 
@@ -72,4 +74,16 @@ CHANNELS = {
 
 ```bash
 nohup python3 server.py > server.log 2>&1 &
+```
+
+## 定时任务（备用）
+
+server.py 内置每 10 分钟自动刷新。也可额外添加 crontab 作为系统级备用：
+
+```bash
+crontab -e
+```
+
+```
+*/15 * * * * /path/to/venv/bin/python3 /path/to/refresh_channels.py >> /path/to/cron.log 2>&1
 ```
