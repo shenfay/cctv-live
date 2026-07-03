@@ -217,7 +217,7 @@ def main():
     t = threading.Thread(target=_auto_refresh_loop, daemon=True)
     t.start()
 
-    server = ThreadedHTTPServer(("127.0.0.1", PORT), Handler)
+    server = ThreadedHTTPServer(("0.0.0.0", PORT), Handler)
     print(f"CCTV-13 直播服务器已启动: http://127.0.0.1:{PORT}", file=sys.stderr)
     print(f"自动刷新间隔: {REFRESH_INTERVAL // 60} 分钟", file=sys.stderr)
     try:
